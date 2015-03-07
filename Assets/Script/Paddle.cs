@@ -12,7 +12,7 @@ public class Paddle : MonoBehaviour {
 	void Update () {
 	
 		float xPos = transform.position.x + (Input.GetAxis ("Horizontal") * paddleSpeed);
-		playerPos = new Vector3 (Mathf.Clamp(xPos, -8f, 8f), -9.5f, 0f);
+		playerPos = new Vector3 (Mathf.Clamp(xPos, -10f, 10f), -9.5f, 0f);
 		transform.position = playerPos;
 	}
 }
