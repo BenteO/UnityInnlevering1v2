@@ -10,9 +10,9 @@ public class Bricks : MonoBehaviour {
         // Vid kollision spawnas brickParticle, två andra är position
 		Instantiate(brickParticle, transform.position, Quaternion.identity);
 		// Kallar på metoden som räknar ner bricks och kollar om vi vunnit eller ej
-        GM.instance.DestroyBrick();
+        GameManager.instance.DestroyBrick();
 		// Förstör gameobject
         Destroy(gameObject);
-        GM.instance.Points();
+        GameManager.instance.Points();
 	}
 }
