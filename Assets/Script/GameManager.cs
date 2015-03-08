@@ -2,22 +2,24 @@
 using System.Collections;
 using UnityEngine.UI;
 
-public class GM : MonoBehaviour {
+public class GameManager : MonoBehaviour {
 	
-	public int lives = 3;
-	public int bricks = 176;
-    //How long before the paddle respawns
-    public float resetDelay = 1f;
-    // Räknar poäng
+	public int nrOfLives = 3;
+	public int nrOfBricks = 176;
     public int points = 0;
+
+    public float resetDelay = 1f;
+
     public Text pointsText;
     public Text livesText;
-	public GameObject gameOver;
+	
+    public GameObject youLose;
 	public GameObject youWon;
-	public GameObject bricksPrefab;
+	public GameObject bricks;
 	public GameObject paddle;
 	public GameObject deathParticles;
-	public static GM instance = null;
+	
+    public static GameManager instance = null;
 	
 	private GameObject clonePaddle;
     public GameObject bonusItem;
@@ -39,22 +41,22 @@ public class GM : MonoBehaviour {
 	public void Setup()
 	{
 		clonePaddle = Instantiate(paddle, transform.position, Quaternion.identity) as GameObject;
-		Instantiate(bricksPrefab, transform.position, Quaternion.identity);
+		Instantiate(bricks, transform.position, Quaternion.identity);
 	}
 	
 	// Checks if you won the game or not
 	void CheckGameOver()
 	{
-		if (bricks < 1) // You won
+        if (nrOfBricks < 1) // You won
 		{
 			youWon.SetActive(true);
 			Time.timeScale = .25f;
 			Invoke ("Reset", resetDelay);
 		}
-		
-		if (lives < 1) // You lose
+
+        if (nrOfLives < 1) // You lose
 		{
-			gameOver.SetActive(true);
+            youLose.SetActive(true);
 			Time.timeScale = .25f;
 			Invoke ("Reset", resetDelay);
 		}
@@ -71,8 +73,8 @@ public class GM : MonoBehaviour {
 	// Keeps score of number of lives
 	public void LoseLife()
 	{
-		lives--;
-		livesText.text = "Lives: " + lives;
+        nrOfLives--;
+        livesText.text = "Lives: " + nrOfLives;
 		
 		// Destroys paddle
 		Instantiate(deathParticles, clonePaddle.transform.position, Quaternion.identity);
@@ -91,8 +93,8 @@ public class GM : MonoBehaviour {
 	
 	public void DestroyBrick()
 	{
-		bricks--;
-        if (bricks == 160 || bricks == 140 || bricks == 120 || bricks == 100 || bricks == 80 || bricks == 60 || bricks == 40 || bricks == 20)
+        nrOfBricks--;
+        if (nrOfBricks == 160 || nrOfBricks == 140 || nrOfBricks == 120 || nrOfBricks == 100 || nrOfBricks == 80 || nrOfBricks == 60 || nrOfBricks == 40 || nrOfBricks == 20)
         {
             Instantiate(bonusItem, transform.position, Quaternion.identity);
         }
