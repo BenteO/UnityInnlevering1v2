@@ -18,11 +18,11 @@ public class GameManager : MonoBehaviour {
 	public GameObject bricks;
 	public GameObject paddle;
 	public GameObject deathParticles;
-	
+    public GameObject bonusItem;
+
     public static GameManager instance = null;
 	
 	private GameObject clonePaddle;
-    public GameObject bonusItem;
 	
 	// Use this for initialization, checks if there is an existing game and destroys it
 	void Awake () 
@@ -32,9 +32,8 @@ public class GameManager : MonoBehaviour {
 		else if (instance != this)
 			Destroy (gameObject);
 
-        // Kallar på metoden som startar spelet och spawnar paddle och bricks
-		Setup();
-		
+            // Kallar på metoden som startar spelet och spawnar paddle och bricks
+            Setup();
 	}
 	
 	// Spawnar paddle och bricks
@@ -50,15 +49,15 @@ public class GameManager : MonoBehaviour {
         if (nrOfBricks < 1) // You won
 		{
 			youWon.SetActive(true);
-			Time.timeScale = .25f;
-			Invoke ("Reset", resetDelay);
+                Time.timeScale = .25f;
+                Invoke("Reset", resetDelay);
 		}
 
         if (nrOfLives < 1) // You lose
 		{
             youLose.SetActive(true);
-			Time.timeScale = .25f;
-			Invoke ("Reset", resetDelay);
+                Time.timeScale = .25f;
+                Invoke("Reset", resetDelay);
 		}
 		
 	}
