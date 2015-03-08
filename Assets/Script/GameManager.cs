@@ -5,7 +5,7 @@ using UnityEngine.UI;
 public class GameManager : MonoBehaviour {
 	
 	public int nrOfLives = 3;
-	public int nrOfBricks = 176;
+	public int nrOfBricks = 430;
     public int points = 0;
 
     public float resetDelay = 1f;
@@ -93,7 +93,7 @@ public class GameManager : MonoBehaviour {
 	public void DestroyBrick()
 	{
         nrOfBricks--;
-        if (nrOfBricks == 160 || nrOfBricks == 120 || nrOfBricks == 100 || nrOfBricks == 80 || nrOfBricks == 60 || nrOfBricks == 40 || nrOfBricks == 20)
+        if (nrOfBricks == 320 || nrOfBricks == 280 || nrOfBricks == 240 || nrOfBricks == 200 || nrOfBricks == 160 || nrOfBricks == 120 || nrOfBricks == 80 || nrOfBricks == 40)
         {
             Instantiate(bonusItem, transform.position, Quaternion.identity);
             CheckGameOver();
