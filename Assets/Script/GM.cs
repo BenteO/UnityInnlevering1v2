@@ -94,6 +94,7 @@ public class GM : MonoBehaviour {
 		CheckGameOver();
 	}
 
+    // Metod för att räkna poäng
     public void Points()
     {
         points++;
