@@ -11,6 +11,7 @@ public class Ball : MonoBehaviour {
 	// Use this for initialization
 	void Awake () {
 	
+        // hämtar komponenten rigidbody som vi ska jobba med
 		rb = GetComponent<Rigidbody> ();
 
 	}
@@ -19,11 +20,15 @@ public class Ball : MonoBehaviour {
 	void Update () {
 	
 		if (Input.GetButtonDown ("Fire1") && ballInPlay == false) {
-			transform.parent = null;
+			// Ball inte längre parent av paddle
+            transform.parent = null;
 			ballInPlay = true;
-			rb.isKinematic = false;
-			rb.AddForce(new Vector3(ballInitialVelocity, ballInitialVelocity, 0));
-		}
+			// slår av kinematic
+            rb.isKinematic = false;
+			// Kraften som bollen slungas iväg med
+            rb.AddForce(new Vector3(ballInitialVelocity, ballInitialVelocity, 0));
+		} 
+
 
 	}
 }

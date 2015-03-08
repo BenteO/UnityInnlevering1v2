@@ -64,7 +64,7 @@ public class GM : MonoBehaviour {
 		Application.LoadLevel(Application.loadedLevel);
 	}
 	
-	// Keeps score of numbero f lives
+	// Keeps score of number of lives
 	public void LoseLife()
 	{
 		lives--;
@@ -79,7 +79,7 @@ public class GM : MonoBehaviour {
 		CheckGameOver();
 	}
 	
-	// Spawns the paddle
+	// Spawns the paddle after death
 	void SetupPaddle()
 	{
 		clonePaddle = Instantiate(paddle, transform.position, Quaternion.identity) as GameObject;
