@@ -7,8 +7,11 @@ public class GM : MonoBehaviour {
 	public int lives = 3;
 	public int bricks = 176;
     //How long before the paddle respawns
-	public float resetDelay = 1f;
-	public Text livesText;
+    public float resetDelay = 1f;
+    // Räknar poäng
+    public int points = 0;
+    public Text pointsText;
+    public Text livesText;
 	public GameObject gameOver;
 	public GameObject youWon;
 	public GameObject bricksPrefab;
@@ -90,4 +93,10 @@ public class GM : MonoBehaviour {
 		bricks--;
 		CheckGameOver();
 	}
+
+    public void Points()
+    {
+        points++;
+        pointsText.text = "Points: " + points;
+    }
 }

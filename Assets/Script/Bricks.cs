@@ -13,5 +13,6 @@ public class Bricks : MonoBehaviour {
         GM.instance.DestroyBrick();
 		// Förstör gameobject
         Destroy(gameObject);
+        GM.instance.Points();
 	}
 }
