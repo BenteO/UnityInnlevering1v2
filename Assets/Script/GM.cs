@@ -92,7 +92,7 @@ public class GM : MonoBehaviour {
 	public void DestroyBrick()
 	{
 		bricks--;
-        if (bricks == 170)
+        if (bricks == 160 || bricks == 140 || bricks == 120 || bricks == 100 || bricks == 80 || bricks == 60 || bricks == 40 || bricks == 20)
         {
             Instantiate(bonusItem, transform.position, Quaternion.identity);
         }
