@@ -13,8 +13,8 @@ public class GameManager : MonoBehaviour {
     public Text pointsText;
     public Text livesText;
 	
-    public GameObject youLose;
-	public GameObject youWon;
+    //public GameObject youLose;
+	//public GameObject youWon;
 	public GameObject bricks;
 	public GameObject paddle;
 	public GameObject deathParticles;
@@ -46,7 +46,7 @@ public class GameManager : MonoBehaviour {
 	// Checks if you won the game or not
 	void CheckGameOver()
 	{
-        if (nrOfBricks < 1) // You won
+        /*if (nrOfBricks < 1) // You won
 		{
 			youWon.SetActive(true);
                 Time.timeScale = .25f;
@@ -58,6 +58,10 @@ public class GameManager : MonoBehaviour {
             youLose.SetActive(true);
                 Time.timeScale = .25f;
                 Invoke("Reset", resetDelay);
+		}*/
+
+		if (nrOfLives < 1 || nrOfBricks < 1) {
+            Application.LoadLevel("PlayAgain");
 		}
 		
 	}
