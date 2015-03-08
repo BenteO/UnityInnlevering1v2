@@ -93,11 +93,11 @@ public class GameManager : MonoBehaviour {
 	public void DestroyBrick()
 	{
         nrOfBricks--;
-        if (nrOfBricks == 200 || nrOfBricks == 180 || nrOfBricks == 160 || nrOfBricks == 140 || nrOfBricks == 100 || nrOfBricks == 80 || nrOfBricks == 60 || nrOfBricks == 40 || nrOfBricks == 00)
+        if (nrOfBricks == 200 || nrOfBricks == 180 || nrOfBricks == 160 || nrOfBricks == 140 || nrOfBricks == 100 || nrOfBricks == 80 || nrOfBricks == 60 || nrOfBricks == 40 || nrOfBricks == 20)
         {
             Instantiate(bonusItem, transform.position, Quaternion.identity);
-            CheckGameOver();
-        } 
+        }
+        CheckGameOver();
 	}
 
     // Metod för att räkna poäng
