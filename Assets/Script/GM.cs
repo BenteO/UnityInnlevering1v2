@@ -20,6 +20,7 @@ public class GM : MonoBehaviour {
 	public static GM instance = null;
 	
 	private GameObject clonePaddle;
+    public GameObject bonusItem;
 	
 	// Use this for initialization, checks if there is an existing game and destroys it
 	void Awake () 
@@ -91,6 +92,11 @@ public class GM : MonoBehaviour {
 	public void DestroyBrick()
 	{
 		bricks--;
+        if (bricks == 170)
+        {
+            Instantiate(bonusItem, transform.position, Quaternion.identity);
+            GM.instance.Points();
+        }
 		CheckGameOver();
 	}
 
