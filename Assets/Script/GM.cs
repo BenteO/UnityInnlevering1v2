@@ -95,7 +95,6 @@ public class GM : MonoBehaviour {
         if (bricks == 170)
         {
             Instantiate(bonusItem, transform.position, Quaternion.identity);
-            GM.instance.Points();
         }
 		CheckGameOver();
 	}
