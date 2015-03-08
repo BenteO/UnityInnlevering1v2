@@ -6,6 +6,7 @@ public class GM : MonoBehaviour {
 	
 	public int lives = 3;
 	public int bricks = 176;
+    //How long before the paddle respawns
 	public float resetDelay = 1f;
 	public Text livesText;
 	public GameObject gameOver;
@@ -24,12 +25,13 @@ public class GM : MonoBehaviour {
 			instance = this;
 		else if (instance != this)
 			Destroy (gameObject);
-		
+
+        // Kallar på metoden som startar spelet och spawnar paddle och bricks
 		Setup();
 		
 	}
 	
-	// Starts the game and spawns the objects
+	// Spawnar paddle och bricks
 	public void Setup()
 	{
 		clonePaddle = Instantiate(paddle, transform.position, Quaternion.identity) as GameObject;
