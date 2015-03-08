@@ -28,7 +28,5 @@ public class Ball : MonoBehaviour {
 			// Kraften som bollen slungas iväg med
             rb.AddForce(new Vector3(ballInitialVelocity, ballInitialVelocity, 0));
 		} 
-
-
 	}
 }
