@@ -2,7 +2,7 @@
 using System.Collections;
 
 public class Bricks : MonoBehaviour {
-	
+
 	public GameObject brickParticle;
 	
 	void OnCollisionEnter (Collision other)
@@ -14,5 +14,5 @@ public class Bricks : MonoBehaviour {
 		// Förstör gameobject
         Destroy(gameObject);
         GameManager.instance.Points();
-	}
+    }
 }
